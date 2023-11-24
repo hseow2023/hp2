@@ -8,4 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: first step
-        run: echo "hello from job1"
+        run: cat /etc/os-release
+  job2: 
+    runs-on: self-hosted
+    steps:
+      - name: first step
+        run: cat /etc/os-release
