@@ -21,3 +21,8 @@ jobs:
     steps:
       - name: first step
         run: hostname
+      - name: sleep for 60 seconds
+        run: sleep 60
+      - name: test step
+        run: 
+          echo job2 run successfully
