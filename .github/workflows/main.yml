@@ -17,12 +17,13 @@ jobs:
       - name: sleep for 60 seconds
         run: echo "Firstname is $first_name. Last name is $last_name"
         env:
-          fist_name: hp
+          first_name: hp
         if: github.event_name == 'push'
       - name: multiple run
         run: 
           echo running a multiline step
           echo mkdir hp
+          echo "Firstname is $first_name. Last name is $last_name"
           echo touch file1
   job2: 
     runs-on: ubuntu-latest
