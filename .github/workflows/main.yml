@@ -9,11 +9,15 @@ on:
 jobs:
   build-job: 
     runs-on: ubuntu-latest
+    env:
+      last_name: Seow
     steps:
       - name: first step
         run: hostname
       - name: sleep for 60 seconds
-        run: sleep 60
+        run: echo "Firstname is $first_name. Last name is $last_name"
+        env:
+          fist_name: hp
         if: github.event_name == 'push'
       - name: multiple run
         run: 
