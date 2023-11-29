@@ -1,4 +1,4 @@
-fname: workflow1
+name: workflow1
 on: 
   push:
     branches:
