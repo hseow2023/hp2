@@ -1,4 +1,4 @@
-name: workflow1
+fname: workflow1
 on: 
   push:
     branches:
@@ -10,7 +10,7 @@ jobs:
       - name: first step
         run: hostname
   job2: 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: first step
-        run: hostname
+        run: cat/etc/os-release
