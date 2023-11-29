@@ -4,11 +4,18 @@ on:
     branches:
       - main
 jobs:
-  job1: 
+  build-job: 
     runs-on: ubuntu-latest
     steps:
       - name: first step
         run: hostname
+      - name: sleep for 60 seconds
+        run: sleep 60
+      - name: multiple run
+        run: 
+          echo running a multiline step
+          echo mkdir hp
+          echo touch file1
   job2: 
     runs-on: ubuntu-latest
     steps:
