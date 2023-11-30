@@ -1,0 +1,27 @@
+name: workflow2
+
+on:
+  push:
+    branches:
+      - main
+env:
+  name: Seow
+  
+jobs:
+  ubuntu_hello:
+    runs-on: ubuntu-latest
+    env:
+      name: Han
+    steps:
+      - run: | 
+          echo "Hello World from $name !!"
+        env: 
+          name: Phing
+      - run: echo "🎉 The job was automatically triggered by $name a ${{ github.event_name }} event"
+      - run: echo "🐧 This job is now running on ${{ runner.name }} which is a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "GitHub Repository URL is ${{ github.repositoryUrl}} and branch is ${{ github.ref_name }} "
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello from $name !"
