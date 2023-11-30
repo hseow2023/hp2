@@ -28,3 +28,5 @@ jobs:
     steps:
       - run: echo "hello from $name ! Welcome to ${{ vars.db_server }} !!"
       - run: echo "hello from ${{ vars.LAST_NAME }}!"
+         echo "Hello World from $name ${{ vars.LAST_NAME }}. Welcome to ${{ vars.db_server }} !!"
+          echo "Repo Password is ${{ secrets.repo_passwd }} and DB passwd is ${{ secrets.db_passwd }} "
