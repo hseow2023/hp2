@@ -16,6 +16,7 @@ jobs:
     steps:
       - run: | 
           echo "Hello World from $name !! Welcome to ${{ vars.db_server }} !!"
+          echo "Repo Password is ${{ secrets.repo_passwd }} and DB passwd is ${{ secrets.db_passwd }} "
         env: 
           name: Phing
       - run: echo "🎉 The job was automatically triggered by $name a ${{ github.event_name }} event"
