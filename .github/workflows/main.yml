@@ -10,16 +10,18 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    continue-on-error: true
     env:
       last_name: Singh
     steps:
       - name: first step
-        run: hostname
-        if: runner.os == 'Windows'
+        run: hotname
+        continue-on-error: true
       - name: sleep for 30 seconds
         run: |
-          sleep 10
-          echo "Firstname is $first_name. Last name is $last_name"
+          sleep 30
+          continue-on-error: true
+          eco "Firstname is $first_name. Last name is $last_name"
         env:
           first_name: Gagandeep
         if: github.event_name == 'push'
@@ -35,9 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: first step
-        run: hostname
+        run: hotname
       - name: sleep for 30 seconds
-        run: sleep 10
+        run: sleep 30
       - name: test step
         run: echo job2 run successfully
     needs: build
@@ -48,5 +50,6 @@ jobs:
       - name: first step
         run: hostname
       - name: sleep for 30 seconds
-        run: sleep 10
+        run: sleep 30
     needs: test
+    if: ${{ always () }} 
