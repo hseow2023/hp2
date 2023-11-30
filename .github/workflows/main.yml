@@ -1,39 +1,52 @@
 name: workflow1
-on: 
+on:
   schedule:
-    - cron: "30,35 * * * *"
-  workflow_dispatch:  
+    - cron: "50 * * * *"
+  workflow_dispatch:
   push:
-    branches:
+    branches: 
       - main
 jobs:
-  build-job: 
+
+  build:
     runs-on: ubuntu-latest
     env:
-      last_name: Seow
+      last_name: Singh
     steps:
       - name: first step
         run: hostname
         if: runner.os == 'Windows'
-      - name: sleep for 60 seconds
-        run: echo "Firstname is $first_name. Last name is $last_name"
+      - name: sleep for 30 seconds
+        run: |
+          sleep 10
+          echo "Firstname is $first_name. Last name is $last_name"
         env:
-          first_name: hp
+          first_name: Gagandeep
         if: github.event_name == 'push'
-      - name: multiple run
-        run: 
+      - name: multline run
+        run: |
           echo running a multiline step
-          echo mkdir hp
+          echo mkdir gagandeep
           echo "Firstname is $first_name. Last name is $last_name"
           echo touch file1
         if: runner.os != 'Windows'
-  job2: 
+
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: first step
         run: hostname
-      - name: sleep for 60 seconds
-        run: sleep 60
+      - name: sleep for 30 seconds
+        run: sleep 10
       - name: test step
-        run: 
-          echo job2 run successfully
+        run: echo job2 run successfully
+    needs: build
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first step
+        run: hostname
+      - name: sleep for 30 seconds
+        run: sleep 10
+    needs: test
