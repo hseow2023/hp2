@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: first step
         run: hostname
+        if: runner.os == 'Windows'
       - name: sleep for 60 seconds
         run: echo "Firstname is $first_name. Last name is $last_name"
         env:
@@ -25,6 +26,7 @@ jobs:
           echo mkdir hp
           echo "Firstname is $first_name. Last name is $last_name"
           echo touch file1
+        if: runner.os != 'Windows'
   job2: 
     runs-on: ubuntu-latest
     steps:
