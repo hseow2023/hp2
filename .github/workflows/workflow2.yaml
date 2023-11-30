@@ -10,11 +10,12 @@ env:
 jobs:
   ubuntu_hello:
     runs-on: ubuntu-latest
+    environment: dev
     env:
       name: Han
     steps:
       - run: | 
-          echo "Hello World from $name !!"
+          echo "Hello World from $name !! Welcome to ${{ vars.db_server }} !!"
         env: 
           name: Phing
       - run: echo "🎉 The job was automatically triggered by $name a ${{ github.event_name }} event"
@@ -23,6 +24,7 @@ jobs:
 
   job2:
     runs-on: ubuntu-latest
+    environment: prod
     steps:
-      - run: echo "hello from $name !"
+      - run: echo "hello from $name ! Welcome to ${{ vars.db_server }} !!"
       - run: echo "hello from ${{ vars.LAST_NAME }}!"
