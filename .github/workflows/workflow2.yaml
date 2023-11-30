@@ -25,3 +25,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello from $name !"
+      - run: echo "hello from ${{ vars.LAST_NAME }}!"
