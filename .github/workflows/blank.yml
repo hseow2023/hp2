@@ -1,5 +1,3 @@
-SHARE outputs across JOBs:
-    
 name: CI
 on:
   push:
